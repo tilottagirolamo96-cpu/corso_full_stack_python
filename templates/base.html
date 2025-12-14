@@ -1,0 +1,41 @@
+{%  load static %}
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style_app.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style_global.css'%}">
+    
+    {% block head_links%}{%endblock%}
+    <title>{% block title %}{% endblock%}</title>
+    
+</head>
+<body>
+    <header class="barnav">
+        <div id="titolo-pagina"> 
+            {% block header_title %}
+                TITOLO DI PROVA
+            {% endblock%}
+        </div>
+        <nav id="nav-links">
+        <a href="{% url 'home'%}">HOME</a>
+        <a href="{% url 'alimentazione_sana' %}">ALIMENTAZIONE EQUILIBRATA</a>
+        <a href="{% url 'diete' %}">TIPI DI DIETE</a>
+        <a href="{% url 'calcolatore:imc' %}">CALCOLO IMC</a>
+        <a href="{% url 'calcolatore:fe' %}">CALCOLO FE</a>
+        <a href="{% url 'tabelle_alimenti' %}">TABELLE ALIMENTI</a>
+        <a href="{% url 'calcolatore:calcolo_alimenti' %}">CALCOLO CALORIE</a>
+        <a href="{% url 'crediti' %}">CREDITI</a>
+        
+        </nav>
+    </header>
+    <div id="foglio-bianco">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+</html>

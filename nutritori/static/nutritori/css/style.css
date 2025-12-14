@@ -1,0 +1,100 @@
+#tabella_alimenti{
+    border-collapse:separate;
+    border-spacing:2px;
+    width: 100%;
+    background-color: rgb(0, 0, 0) ;
+    
+}
+#tabella_alimenti caption{
+    width: 100%;
+    background-color:rgb(0, 49, 105);
+    margin:0;
+    box-sizing: border-box;
+}
+
+/* Stili per le intestazioni dei nutrienti (scrittura verticale) */
+#tabella_alimenti thead tr:not(#misure) th:nth-child(odd){ 
+    writing-mode: vertical-rl; /* Testo ruotato da destra a sinistra */
+    position:relative;
+    height:12em;
+    width:10px;
+    min-width: 5px;
+    
+    padding: 3px 1px;
+    text-align:center;
+    font-size: 0.90em;
+    vertical-align: center;
+    background-color: rgb(32, 99, 175);
+}
+
+#tabella_alimenti thead tr:not(#misure) th:nth-child(even){
+    writing-mode: vertical-rl; /* Testo ruotato da destra a sinistra */
+    position:relative;
+    height:12em;
+    width:10px;
+    min-width: 5px;
+    color:black;
+    padding: 3px 1px;
+    text-align:center;
+    font-size: 0.90em;
+    vertical-align: center;
+    background-color: rgb(0, 184, 251);
+}
+
+#misure th:nth-child(even){
+    writing-mode: horizontal-tb;/* Testo orizzontale */
+    height: auto;
+
+    width:10px;
+    min-width: 10px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1px;
+
+    border-top:none !important;
+    color:black;
+    background-color: rgb(0, 184, 251);
+}
+#misure th:nth-child(odd){
+    writing-mode: horizontal-tb;/* Testo orizzontale */
+    height: auto;
+
+    width:10px;
+    min-width: 10px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1px;
+
+    border-top:none !important;
+
+    background-color: rgb(32, 99, 175);
+}
+#tabella_alimenti tr:nth-child(odd) td {
+    background-color: rgb(32, 99, 175);
+    color:rgb(255, 255, 255);
+    padding:2px;
+    text-align: center;
+
+}
+
+#tabella_alimenti tr:nth-child(even) td {
+    background-color: rgb(0, 184, 251);
+    color:rgb(0, 0, 0);
+    padding:2px;
+    text-align: center;
+
+}
+/* --- 5. STILI TIPOGRAFICI DI BASE --- */
+
+#titolo{
+    font-size:15px;
+    text-align:center;
+}
+#titolo-grassetto{
+    font-size:23px;
+}
+
+/* Stili per le intestazioni delle Misure (sottointestazioni orizzontali) */
+
+
+

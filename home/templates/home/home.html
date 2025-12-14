@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+il mio progetto finale
+{% endblock %}
+
+{% block head_links%}
+    <link rel="stylesheet" href="{% static 'home/css/style.css'%}">
+{%endblock%}
+{% block header_title %}
+    IL MIO PROGETTO FINALE
+{% endblock%}
+
+{%block content%}
+    <main>
+        <div>
+            <article>
+                <h1>PARLIAMO DI ALIMENTAZIONE</h1>
+
+                <section name="cosa sono gli alimenti">
+                    <h2>COSA SONO GLI ALIMENTI</h2>
+
+                    <h3> Alimenti e la loro classificazione</h3>
+                    <p>l'alimento per essere condiderato tale deve rispondere alle seguenti caratteristiche
+                        <ul>
+                            <li>contenere almeno uno dei principi alimentari</li>
+                            <li>essere commestibile crudo o cotto</li>
+                            <li>presentare caratteristiche organolettiche accettabili</li>
+                            <li> non contenere sostanze velenose o tossiche</li>
+                        </ul>
+                    </p>
+                </section>
+                
+                <div class="testo-accanto-immagine">
+                    <section name="definizione">
+                        <img src="{% static 'home/img/pasta.jpg'%}" alt="My image" class="immagine-definizione">
+                        <h4 id="titolo-definizione">Alimento</h4>
+
+                        <p id="definizione">
+                            qualsiasi sostanza o prodotto trasformato,parzialmente trasformato o non trasformato, 
+                            destinato ad essere ingerito,o di cui si prevede ragionevolmente che possa essere ingerito, da esseri umani,
+                            comprese le bevande, le gomme da masticare e qualsiasi sostanza, compresa l'acqua, intenzionalmente incorporata
+                            negli alimenti nel corso della loro produzione,preparazione o trattamento
+                        </p>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <div>
+                    <section name="cosa servono gli alimenti">
+                        <p>
+                            attraverso il consumo corretto di <strong>alimenti</strong> l'uomo riesce a garantire all'organismo
+                            tutte le sostanze di cui ha bisogno par la sua <strong>nutrizione.</strong>
+                        </p>
+                    </section>    
+            
+                    <section name="distinzione alimenti">
+                        <h2 style="text-align:center; font-size: 2em;">Distinzione degli alimenti</h2>
+                        <p>
+                            Gli alimenti si possono distinguere in base a numerosi criteri:
+                    
+                            <ul>
+                                <li>origine merceologica.</li>
+                                <li>aspetti tecnico-produttivi.</li>
+                                <li>funzione prevalente.</li>
+                                <li>importanza nella dieta.</li>
+                                <li>codice di classificazione europeo.</li>
+                            </ul>
+                        </p>
+                    </section>
+                </div>
+            </article>
+            <article>
+                <section name="origine merceologica">
+                    <h3> Origine merceologica:</h3>
+
+                    <p> 
+                        se consideriamo l'<strong>origine merceologica</strong>, si possono distinguere gli alimenti di origine:
+                        <ul>
+                            <li>
+                                <strong>minerale</strong>, acqua,acqua minerale, sale da cucina.
+                            </li>
+                            <li>
+                                <strong>vegetale</strong>, cereali e derivati,ortaggi e frutta,oli,bevande nervine,bevande alcoliche.
+                                e analcoliche
+                            </li>
+                            <li>
+                                <strong>funginia</strong>, funghi commestibili e tartufi.
+                            </li>
+                            <li>
+                                <strong>animale</strong>, carni, prodotti ittici, uova,latte e derivati.
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section name="aspetti-tecnico-produttivi">
+
+                    <h3>Aspetti Tecnico-Produttivi:</h3>
+                    <p>
+                        Dal punto di vista <strong>tecnuco-produttivo</strong> gli alimenti si possono distinguere in:
+                    
+                        <ul>
+                            <li>
+                                <strong>Alimenti freschi o simil freschi</strong>, sostanze alimentari provenienti dall'agricoltura,
+                                dalla pesca o dall'allevamento e consumati tali e quali (es. frutta e verdura di stagione,carne,pesce,uova).
+                            </li>
+                            <li>
+                                <strong>Alimenti conservati</strong>, si usano diverse tecnologie alimentari di tipo conservativo
+                                allo scopo di favorire la durabilità e prolungare la commestibilità (es. surgelati, liofilizzati,
+                                prodotti in scatola, ecc.).
+                            </li>
+                            <li>
+                                <strong>alimenti trasformati</strong> dall'industria alimentare, si tratta di alimenti modificati
+                                nella loro composizione originaria attraverso processi tecnologici di vario tipo e denominati più
+                                propriamente prodotti alimentari (es. salumi, yogurt, formaggi,vino,birra, ecc.).
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+                <section name="funzione prevalente">
+                    <h3>Funzione prevalente:</h3>
+                    <p>
+                        in base alla <strong>funzione prevalente</strong>, data dalla composizione in principi alimentari
+                        (si accetta anche il termine principi nutritivi o nutrienti), gli alimenti si distinguono in:
+                        <ul>
+                            <li>
+                                <strong>Alimenti energetici</strong>: cereali e derivati, miele, zucchero, frutta secca,
+                                oli e grassi (apportano prevalentemente glucidi e lipidi).
+                            </li>
+                            <li>
+                                <strong>Alimenti plastici</strong>: carne, prodotti ittici, uova, latte e derivati
+                                (sono ricchi di proteine).
+                            </li>
+                            <li>
+                                <strong>Alimenti regolativi-protettivi</strong>: frutta, verdura 
+                                (sono ricchi di vitamine e sali minerali).
+                            </li>
+                        </ul>
+                    </p>
+                </section>
+
+                <section name="l'importanza nella dieta">
+                    <h3>L'importanza nella dieta:</h3>
+                    <div class="contenitore-affiancamento">
+                        <div class="testo-classificazione">
+                            <p>
+                                Se viene considerata l'<strong>importanza nella dieta</strong>, gli alimenti si distinguono in:
+                                <ul>
+                                    <li>
+                                        <strong>Alimenti primari</strong>, costituiti da: carne, pesci, uova, cereali, legumi, ortaggi,
+                                        frutta, latte e derivati, oli e grassi da condimento.
+                                    </li>
+                                    <li>
+                                        <strong>Alimenti accessori</strong>, sono alimenti che svolgono un ruolo secondario ai fini nutrizionali
+                                        (es. spezie, erbe aromatiche, bevande alcoliche e analcoliche, bevande nervine).  
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+
+                        <div class="tabella-nutrienti">
+                            <table>
+                                <caption>
+                                    <strong>
+                                        GLI ALIMENTI PRIMARI APPORTANO
+                                        I NUTRIENTI CHE L'ORGANISMO
+                                        USA PER IL METABOLISMO
+                                    </strong>
+                                </caption>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>GLUCIDI</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>PROTIDI</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>LIPIDI</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>VITAMINE</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SALI MINERALI</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>ACQUA</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="clear: both;"></div>
+
+                </section>
+                <section name="codice di classificazione europeo">
+                    <h3>
+                        Codice di classificazione europeo
+                    </h3>
+
+                    <p>
+                        la classificazione secondo il <strong>codice di categoria europeo EU</strong>,
+                        elaborato dalla commissione Europea distingue 21 categorie alimentari identificate con
+                        codice europeo (01-21). Si tratta di una distinzione utile per chi deve effettuare controlli
+                        ufficiali degli alimenti e per la loro commercializzazione nell'ambito dell'UE.
+                        Nei casi di alimenti con multi-ingredienti quali cereali e uova, soft-drinks e yogurt,carne e uova ecc.
+                        il prodotto rientra nella categoria con ingrediente a maggiore quantità
+                    </p>
+                </section>
+            </article>
+        </div>
+    </main>
+
+{% endblock %}

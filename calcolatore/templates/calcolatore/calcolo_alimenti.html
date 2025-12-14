@@ -1,0 +1,102 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Calcolo Calorie{%endblock%}
+
+{% block head_links%}
+    <link rel="stylesheet" href="{% static 'calcolatore/css/style.css'%}">
+{%endblock%}
+
+{% block header_title %}
+    CALCOLO CALORIE
+{% endblock%}
+
+
+{%block content%}
+
+ <h1>Ricerca e Calcolo Alimenti</h1>
+    <div class="calcolatore-container">
+       
+        <div id="ricerca-caption">
+            <p >scrivi l'alimento che vuoi cercare oppure cercalo dal menù a tendina</p>
+
+            <div id="riga-input-controlli">
+                <div id="autocomplete-box"></div>
+
+                <div class="input-e-suggerimento">
+                    <input type="text" id="barraRicerca" placeholder="Cerca alimento...">
+
+                    <div id="suggerimentoInline" class="suggerimento-migliore">
+                        <span id="testoDigitatoVisibile"></span>
+                        <span id="testoSuggerimento"></span>
+                    </div>
+                </div>
+
+                <div id="suggerimentiAutoComplete"></div>
+
+                <div id="selectEQuantita">
+                    <select id="categoria_alimento" onchange="filtroAlimenti()">
+                        <option value="">---SELEZIONA CATEGORIA---</option>
+                            {%for categoria in info_alimenti.tipo_alimenti%}
+                            <option id="categoria_select" value="{{categoria.id}}">
+                                {{categoria.categoria_alimenti}}
+                            </option>
+                            {%endfor%}
+                    </select>
+
+                    <select id="selezione_alimento">
+                        <option>--- Seleziona Alimento ---</option>
+                    </select>
+
+                    <p>
+                        <input type="number" id="inputQuantita" value="100" min="0" placeholder="Quantità (g)">g
+                    </p>
+                
+                    <button id='bottoneAggiungi' >Aggiungi</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="listaAlimentiAggiunti">
+            <table id="tabellaAlimentiAggiunti">
+                <thead>
+                    <tr>
+                        <th>Alimento</th>
+                        <th>Quantità (g)</th>
+                        <th>Calorie Kcal</th>
+                        <th>Calorie KJ</th>
+                        <th>proteine</th>
+                        <th>carboidrati</th>
+                        <th>grassi</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="messaggioErrore"></div>
+
+        <div id="risultatiCalcolo" class="risultati"></div>
+    </div>
+    <script>
+        const DATI_ALIMENTI=[];
+            {% for alimento in info_alimenti.alimenti %}
+                DATI_ALIMENTI.push({
+                    codice:"{{alimento.Numero_Codice}}",
+                    nome:"{{alimento.alimento}}",
+                    categoria_id:"{{alimento.tipo_alimento_id}}",
+                    proteine:"{{alimento.proteine|default:0}}",
+                    lipidi:"{{alimento.lipidi|default:0}}",
+                    carboidrati:"{{alimento.carboidrati|default:0}}",
+                    energia_kcal:"{{alimento.energia_kcal|default:0}}",
+                    energia_kj:"{{alimento.energia_kj|default:0}}"
+                })
+            {% endfor %}
+           
+
+        let listaAlimentiAggiunti=[]
+    </script>
+    <script src="{% static 'calcolatore/js/calcolatore_calorie.js' %}"></script>
+
+{%endblock%}

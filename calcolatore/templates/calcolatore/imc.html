@@ -1,0 +1,196 @@
+{%extends 'base.html'%}
+
+{% load static %}
+{% block head_links%}
+    <link rel="stylesheet" href="{% static 'calcolatore/css/style.css'%}">
+{%endblock%}
+
+{%block title%}indice massa corporea{%endblock%}
+
+{% block header_title%} INDICE MASSA CORPOREA {%endblock%}
+
+{% block content%}
+<main>
+    <h1>CALCOLARE L'IMB</h1>
+    <section name="peso teorico o desiderabile">
+        <h2>COS'È L'INDICE MASSA CORPOREA E A COSA SERVE</h2>
+        <p>
+            L'indice di massa corporea (<b>IMC</b> o <b>BMI</b>, acronimo Inglese di Body Mass Index) è un parametro 
+            che mette in relazione la massa corporea e la statura di un soggetto. L'IMC fornisce una stima 
+            delle dimensioni corporee
+            più accurata rispetto alle vecchie tabelle basate semplicemente su altezza e peso, ma non tiene conto della 
+            muscolatura del soggetto e non può essere usato
+            per i soggetti in accrescimento e per le donne incinte. L'indice
+            di massa corporea è comunque un parametro molto importante. Oltre ad essere utilizzato per la classificazione
+            del sovrappeso e dell'obesità negli uomini adulti e nelle donne non gravide, il BMI è anche un indice 
+            epidemiologico. Esiste infatti una profonda correlazione tra indice di massa corporea e rischio di mortalità per
+            complicazioni cardiovascolari (inclusa l'ipertensione), diabete e malattie renali.
+        </p>
+
+    </section>
+    <section name="formula imb">
+
+        <div class="blocco_formula">
+            <h2>COME SI CALCOLA L'IMC</h2>
+            <p>
+                l'indice di massa corporea si calcola dividendo il proprio peso espresso in kg per il
+                quadrato dell'altezza espressa in metri
+                <h2>IMC = massa corporea(kg)/statura(m²)</h2>
+                <div style="text-align:center">
+                    <div class="formula">
+                        <div style="display:inline-block; text-align:center">
+                            <span><strong>peso(kg)</strong></span>
+                            <hr style="width:100%">
+                            <span><strong>altezza<sup>2</sup> (m)</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <p>
+                    in base a questa formula l'indice di massa corporea di una persona che pesa 75
+                    chilogrammi ed è alta 1 metro e 80 centimetri sarà quindi uguale a:
+                
+                    <strong>75/(1.80*1.80)=75/3.24 =23,1</strong>
+                </p>
+
+            </p>
+        </div>
+    </section>
+    
+        <p>
+            la tabella permette di capire se il valore del proprio IMC rientra nella categoria di normopeso
+            o in una categoria a rischio.
+        </p>
+    <section name="tabella imc">
+        <table id="imc">
+            <caption>STATO DI NUTRIZIONE IN FUNZIONE DELL'IMC</caption>
+            <thead>
+                <tr>
+                    <th>stato nutrizione</th>
+                    <th>classe di obesità</th>
+                    <th>IMC (kg/m²)</th>
+                </tr>
+               
+            </thead>
+            <tbody>
+                {% for classe in info_imc.classificazione %}
+                <tr>
+                    <td>{{ classe.stato_nutrizione }}</td>
+                    <td>{{ classe.classe_obesita|default:"-" }}</td>
+                    <td>{{ classe.intervallo_imc }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>
+                        Nessuna classificazione IMC trovata nel database
+                    </td>
+                </tr>
+                {% endfor %}
+                <th>
+
+                </th>
+                <th> Alto rischio</th>
+                <th>circonferenza addominale</th>
+           
+                {% for record in info_imc.rischi %}
+                    <tr>
+                        <td>{{record.condizione_rischio}}</td>
+                        <td>{{record.genere}}</td>
+                        <td>{{record.circonferenza_addominale_soglia}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+        <br>
+        <br>
+    <section name="calcolo IMC">
+        <h2>CALCOLA IL TUO IMC</h2>
+        <br>
+        <table id="calcolatore-imc">
+            <caption>CALCOLA IL TUO IMC</caption>
+            <tbody>
+                <tr>
+                    <td for="peso">
+                        PESO(kg):<input type="number" id="input_peso" step="0.1" min="1" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td for="altezza">
+                        ALTEZZA:
+                        <input type="number" id="input_altezza" step="0.01" min="0.5" required>
+
+                        <select id="unita_altezza">
+                            <option value="m">m</option>
+                            <option value="cm">cm</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="bottone_calcola">calcola</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1">
+                        <div id="risultato_testo"> Inserisci i dati e clicca 'calcola'</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        il tuo peso forma secondo l'IMC è compreso tra:
+                        <div id="risultato_peso_min"></div>kg
+                        e
+                        <div id="risultato_peso_max" ></div>kg
+                    </td>
+                </tr>
+            </tbody>
+          
+        </table>
+    </section>
+    <section name="perché calcolare l'imc">
+        <h2 style="text-align:start">HA SENSO CALCOLARE L'IMC?</h2>
+        <P>
+            Sì, contrariamente alle ultime tendenze, il calcolo dell'indice di massa corporea continua ad avere
+            un'incredibile importanza nella pratica clinica e nell'epidemiologia.
+
+            Il BMI è essenziale:
+
+            sia per determinare con assoluta certezza l'obesità - poiché, per quanta massa muscolare possa avere una 
+            persona, non arriverà mai ad un IMC superiore a 30 senza un eccesso adiposo;
+            sia per determinare con assoluta certezza il sottopeso - importantissimo nella terapia di alcuni disturbi
+            alimentari e nella valutazione nutrizionale di soggetti con altre gravi malattie o anziani.
+            Non di meno, il BMI è essenziale per studiare l'andamento dello stato nutrizionale in determinate aree
+            geografiche e nel tempo, o in alcuni gruppi di popolazione.
+
+            Diverso è se vogliamo attribuire all'IMC un valore "qualitativo" sulla composizione corporea dei soggetti
+            più o meno "normopeso" (inclusi quelli in leggero sovrappeso).
+
+            Abbiamo già spiegato che il solo BMI non tiene conto né dei muscoli, né dello scheletro. Tuttavia, 
+            l'importanza dell'ossatura può essere tenuta in conto grazie all'applicazione della costituzione e del
+            tipo morfologico
+
+            Per la massa muscolare invece, purtroppo non ci sono correzioni metodologiche realmente efficaci.
+
+            D'altro canto, poco importa, visto che l'indice di massa corporea è un metodo di valutazione che non ha
+            nulla a che vedere con il bodybuilding - e, in realtà, nemmeno con lo sport.
+        </P>
+    </section>
+</main>
+
+<script>
+    const regoleDiClassificazione = [];
+    {% for classe in info_imc.classificazione %}
+        regoleDiClassificazione.push({
+        stato: "{{ classe.stato_nutrizione }}",
+        classe: "{{ classe.classe_obesita|default:'' }}",
+        intervallo_str: "{{ classe.intervallo_imc}}",
+    })
+    {% endfor %}
+    
+</script>
+<script src="{% static 'calcolatore/js/calcolatore_imc.js' %}"></script>
+
+{%endblock%}

@@ -1,0 +1,320 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}Fabisogno energetico{%endblock%}
+{% block head_links%}
+    <link rel="stylesheet" href="{% static 'calcolatore/css/style.css'%}">
+{%endblock%}
+
+
+{% block header_title%} FABISOGNO ENERGETICO{%endblock%}
+
+{% block content%}
+    <main>
+        <section name="Fabisogno Energetico">
+            <h1 style="font-size:3em;">FABISOGNO ENERGETICO GIORNALIERO</h1>
+
+            <h2 style="font-size:2em"> COS'È IL FABISOGNO ENERGETICO GIORNALIERO</h2>
+            <p> 
+                il fabisogno energetico giornaliero rappresenta con buona approssimazione, la quantità di
+                calorie che consente di raggiungere gradualmente il peso forma.<br>
+                se il peso forma attuale è superiore (es. obesità di I°) allora si dovrà fare una
+                (<strong><a href="{% url 'diete' %}">Dieta Ipocalorica</a></strong> o Dieta Dimagrante),
+                se il peso attuale è inferiore allora si dovrà fare una 
+                (<strong><a href="{% url 'diete' %}">Dieta Ipercalorica</a></strong> o Dieta Ingrassante).
+                
+            </p>
+        </section>
+        <section name="Determinare Fabisogno Energetico Giornaliero">
+
+            <h3>DETERMINAZIONE DEL FABISOGNO ENERGETICO GIORNALIERO</h3>
+            <p>
+                tutta l'energia che il nostro organismo consuma quotidianamente per compiere le sue attività
+                fisiologiche e lavorative, rappresenta il fabisogno energetico totale giornaliero.
+
+                In generale esso è dato dalla somma energetica risultate da:
+                <ul>
+                    <li> <strong>Metabolismo Basale (MB)</strong></li>
+
+                    <li>termogenesi indotta dalla dieta (TID) data dal surplus energetico conseghuente all'introduzione
+                        degli alimenti
+                    </li>
+                    <li>
+                        energia per le attività fisiche (deducibile dai LAF)
+                    </li>
+                    
+                </ul>
+            </p>
+            <p>
+                Il <strong>Fabisogno Energetico totale giornaliero</strong> è valutato considerando la somma dei rispettivi valori.
+                <br>
+                <br>
+                <div style="width:600px; margin-left:auto; margin-right:auto;">
+                    <div class="blocco_formula">
+                        <p>
+                        <strong>(FE) FABISOGNO ENERGETICO = (MB+TID) x (LAF)</strong>
+                        </p>
+                    </div>
+                </div>
+                <ul>
+                    <li>
+                        nelle tabelle sottostanti il <b>Metabolismo Basale</b> (<b>MB</b>), include nel calcolo anche la termogenesi
+                        degli alimenti (<b>TID</b>).
+                    </li>
+                    <li>
+                        il calcolo del <b>Fabisogno Energetico Totale Giornaliero</b> si ottiene moltiplicando il valore
+                        del MB per determinati indici detti LAF che esprimono il Livello Di Attività Fisica
+                    </li>
+                </ul>
+                <p>
+                    utilizzando questa procedura,quindi, il Fabisogno Energetico Giornaliero è dato da:
+                </p>
+                <div style="width:200px; margin-left:auto; margin-right:auto;">
+                    <div class="blocco_formula">
+                        <p style="text-align:center">
+                            <b>FE = MB x LAF</b>
+                        </p>
+                    </div>
+                </div>    
+            </p>
+        </section>
+        <section name="tabelle MB e LAF">
+            <table id="metabolismo-basale">
+                <caption>METABOLISMO BASALE (MB) <br>
+                    metodo:Commission of the European Communities - LARN
+                </caption>
+                <thead>
+                    <tr>
+                        <th>Età in anni</th>
+
+                        <th>Maschi (kcal/giorno)</th>
+
+                        <th>Femmine (kcal/giorno)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for eta, valori in info_mb.righe.items%}
+                    <tr>
+                        <td>{{ eta }}</td>
+                        <td>{{ valori.Uomini }}</td>
+                        <td>{{ valori.Donne }}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <table id="larn">
+                <caption><strong>LAF GIORNALIERI PER ADULTI E ANZIANI</strong><br>
+                <strong>(metodo: Commission of the European Communities-LARN)</strong></caption>
+                <thead>
+                    <tr>
+                        <th><b>Genere</b></th>
+                        <th><b>Classe di età e livelli attività fisica</b></th>
+                        <th><b>LAF</b> (comprese le attività fisiche auspicabili)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for riga in info_fe.righe_fe_adulti %}
+                        <tr>
+                            <td>{{riga.genere}}</td>
+                            <td>{{riga.eta_livello}}</td>
+                            <td>{{riga.laf}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table id="laf_adolescenti">
+                <caption><b> LAF GIORNALIERI PER GLI ADOLESCENTI: viene considerata solo l'attività moderata
+                    (metodo:Commission of the European Communities-LARN)
+                </b></caption>
+                <thead>
+                    <tr>
+                        <td>Età in anni</td>
+                        <td>Maschi</td>
+                        <td>Femmine</td>
+                    </tr>
+                    <tbody>
+                        {% for eta,valori in info_fe.righe_fe_adolescenti.items%}
+                            <tr>
+                                <td>{{eta}}</td>
+                                <td>{{valori.Uomini}}</td>
+                                <td>{{valori.Donne}}</td>
+                            </tr>
+                        {% empty%}
+                            <tr><td colspan="3">nessun dato per il fabisogno energetico adolescenti</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            </table>
+        </section>
+        <br>
+        <br>
+        <section>
+            <div id="esempio-calcolo-fe">
+                <h2>FACCIAMO UN ESEMPIO DI COME SI CALCOLA IL FABISOGNO ENERGETICO GIORNALIERO</h2>
+                <p>
+                    calcoliamo il <strong>Fabisogno Energetico</strong> di un uomo di 40 anni del peso di 70 kg
+                    che svolge una attività fisica leggera
+            
+                    si procede come segue:
+                    MB= 11.6 x 70 + 879 = 1691 kcal
+                    Fabisogno Energetico Totale= 1691 x 1.55 = 2621 kcal
+                </p>
+                   
+            </div>
+
+            
+            <h2>ripartizione dei nutrienti</h2>
+            <P>una alimentazione equilibrata deve apportare tutti i nutrienti di cui l'uomo ha bisogno
+                per stare in salute. la ripartizione ottimale dei macronutrienti dovrà corrispondere,
+                per un adulto, a valori di energia che si avvicinano alla seguente percentuale
+                <ul>
+                    <li><b>proteine 10%</b></li>
+                    <li><b>lipidi 25%</b></li>
+                    <li><b>glucidi 65%</b></li>
+                </ul>
+            </P>
+        <div id="ripartizione-nutrienti">
+                <h2>facciamo un esempio di ripartizione dei nutrienti</h2>
+                <p>
+                    calcoliamo la <b>ripartizione calorica in macronutrienti</b> di un individuo adulto
+                    che ha un fabisogno energetico di 2400 kcal.<br><br>
+                    si procede come segue
+                    si definisce la ripartizione 10% proteine, 25% lipidi, 65% glucidi<br><br>
+
+                    2400 x 10% = 240kcal da proteine<br>
+
+                    240 : 4 = 60g proteine (1g proteine equivale a 4 kcal)<br><br>
+
+                    2400 : 25% = 600kcal da lipidi<br>
+                    600:9=66.6g di lipidi (1g di lipidi equivale a 9 kcal)<br><br>
+
+                    2400:65% = 1560 kcal da glucidi<br>
+
+                    1560:4 = 390g di glucidi (1g di glucidi equivale a 4 kcal)
+                    </p>
+            </div>
+
+            <p>
+                conoscendo questi dati si possono andare a calcolare le varie tipologie di macronutrienti che assumiamo
+                durante la giornata in modo da riuscire a fare una dieta equilibrata e sana assorbendo tutti i macronutrienti
+                di cui abbiamo bisogno nelle rispettive quantita.
+
+                grazie a questi valori si può modificare la nostra dieta
+
+                per esempio possiamo fare una dieta proteica sapendo che le proteine devono stare in un rage tra il 12 e il 20%
+
+                un atleta o cumunque una persona che fa sport andra ad aumentare le proteine all'interno della sua dieta diminuendo
+                i glucidi o i lipidi in modo da regolare il valore dei macronutrienti
+
+                prendendo l'esempio di poco fa delle 2400 kcal il 20% di proteinte equivalgono a 500kcal ovvero 125g di proteine
+
+                i lipidi diventano il 20% quindi vremmo 2400 kcal :20% di lipidi equivalgono a 500kcal ovvero 55.55g di lipidi
+
+                mentre i carboidrati (o glucidi) diventano il 60% ovvero 1440 kcal che equivalgono a 360g di carboidrati
+
+                questo ci permette di aumentare le proteine diminuendo gli altri valori di glucidi e lipidi ottenendo una dieta proteica equilibrata
+            </p>
+        </section>
+        <section name="calcolo FE">
+            <h2>CALCOLA IL TUO FE</h2>
+            <div class="gruppo_peso_fe">
+                <label for="input_peso_fe">Peso:</label>
+                <input id="input_peso_fe" type="number" min="1">
+            </div>
+            <div class="gruppo_eta_fe">
+                <label for="input_eta_fe">Età:</label>
+                <input id="input_eta_fe" type="number" min="0">
+            </div>
+            <div class="gruppo_Sesso">
+                <label for="select_sesso_fe">sesso:</label>
+                <select id="select_sesso_fe">
+                    <option value="Uomini">Uomo</option>
+                    <option value="Donne">Donna</option>
+                </select>
+            </div>
+            <div class="gruppo_lavoro">
+                <label for="select_lavoro_fe">Lavoro:</label>
+                <select id="select_lavoro_fe">
+                    <option value="">-------</option>
+                    {% for lavori in info_lavori%}
+                    <option value="{{lavori.lavoro}}">
+                        {{lavori.lavoro}}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="gruppo_laf">
+                <label for="select_laf_fe">ore attività fisica:</label>
+                <select id="select_laf_fe">
+                    <option value="">-------</option>
+                    <option value="2">fino a 2 ore settimanali</option>
+                    <option value="3-5">da 3 a 5 ore settimanali</option>
+                    <option value=">5">più di 5 ore a settimanali</option>
+                </select>
+            </div>
+            <div class="gruppo_bottone">
+                <button id="btn_calcola_fe">CALCOLA fabisogno energetico</button>
+            </div>
+           <div class="gruppo_output">
+                <div class="risultato-mb">
+                    <span>METABOLISMO BASALE: </span>
+                    <div id="risultato_MB"></div>
+                    <span> calorie</span>
+                </div>
+                 <div class="risultato-fe">
+                    <span>FABISOGNO CALORICO QUOTIDIANO: </span>
+                    <div id="risultato_MB_LAF"></div>
+                    <span> calorie</span>
+                </div>
+           </div>
+        </section>
+
+    </main>
+    <script>
+        const TABELLA_MB=[];
+        {% for classe in info_mb.tabella_mb%}
+            TABELLA_MB.push({
+                eta: '{{classe.eta}}',
+                genere:'{{classe.genere}}',
+                kcal_giorno:'{{classe.kcal_giorno}}',
+            })
+            {% endfor %}
+    </script>
+    <script>
+        const TABELLA_LAVORO=[];
+        {% for classe in info_lavori%}
+            TABELLA_LAVORO.push({
+                lavoro:'{{classe.lavoro}}',
+                categoria_laf:'{{classe.categoria_laf}}',
+            })
+        {% endfor %}
+    </script>
+    <script>
+        const TABELLA_LAF=[];
+        {% for classe in info_fe.tabella_fe_adulti%}
+            TABELLA_LAF.push({
+                eta: '{{classe.classe_eta}}',
+                genere:'{{classe.genere}}',
+                livello_attivita:'{{classe.livello_attivita_fisica}}',
+                coeff_laf:'{{classe.laf}}',
+                
+            })
+        {% endfor %}
+       
+    </script>
+    <script>
+    const TABELLA_LAF_ADOLESCENTI=[];
+        {% for classe in info_fe.tabella_fe_adolescenti %}
+            TABELLA_LAF.push({
+                eta: '{{classe.classe_eta}}',
+                genere:'{{classe.genere}}',
+                coeff_laf:'{{classe.laf}}',
+            })
+        {% endfor %}
+        
+    </script>
+    
+    <script src="{% static 'calcolatore/js/calcolatore_fe.js' %}"></script>
+{%endblock%}

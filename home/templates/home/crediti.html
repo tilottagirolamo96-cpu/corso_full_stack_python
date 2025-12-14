@@ -1,0 +1,88 @@
+{%extends 'base.html'%}
+
+{%block title%}Crediti{%endblock%}
+
+{% block header_title %}
+    CREDITI
+{% endblock%}
+
+{%block content%}
+<main>
+    <section name="introduzione">
+        <h2> Riconoscimenti e Fonti DATI</h2>
+        <p>
+            Questo progetto è stato realizzato con l'ausilio di diverse risorse esterne, dati open source e
+            strumenti software. Desideriamo ringraziare e attribuire il merito a tutte le fonti che hanno reso 
+            possibile lo sviluppo e la completezza di questa applicazione per il calcolo nutrizionale.
+        </p>
+    </section>
+    <section name="crediti Dati Nutrizionali">
+        <h3>Database e Dati Nutrizionali</h3>
+        <p>
+            La tabella nutrizionale utilizzata per i calcoli dei macronutrienti (Kcal, Proteine, Lipidi, Carboidrati)
+            e per popolare i dropdown e l'autocompletamento è basata su:
+            <ul>
+                <li><strong>Nome Fonte:</strong> Tabelle di Composizione degli Alimenti del CREA</li>
+                <li><strong>versione:</strong> aggiornamento 2019</li>
+                <li><strong>URL di Riferimento:</strong> https://www.alimentinutrizione.it/tabelle-nutrizionali</li>
+            </ul>
+            <p>
+                La manipolazione, l'elaborazione e la struttura di questi dati nel formato Database del progetto sono state
+                eseguite dall'autore
+            </p>
+        </p>
+    </section>
+    <section name="Crediti Software e FrameWork">
+        <h3>Tecnologie e Librerie Software</h3>
+        <p>L'applicazione è stata sviluppata utilizzando i seguenti strumenti principali
+            <ul>
+                <li>
+                    <strong>Backend/Logica:</strong><b>Python</b> e il framework <b>Django.</b>
+                </li>
+                <li>
+                    <strong>Frontend/Interfaccia Utente:</strong><b>HTML5,CSS3</b> (styling personalizzato) e
+                    <b>Javascript</b> (per la logica di calcolo e l'interazione dinamica dell'utente).
+                </li>
+                <li>
+                    <strong>Ambiente di Sviluppo:</strong><b>Visual Studio Code</b>
+                </li>
+            </ul>
+        </p>
+    </section>
+    <section name="crediti immagini e risorse grafiche">
+        <h3>Risorse Visive e Grafiche</h3>
+        <p>
+            le risorse grafiche, le icone e le immagini decorative utilizzate nel progetto sono state ottenute
+            e licenziate come segue:
+            <ul>
+                <li><strong>Immagini (Piramide.jpg, dieta.jpeg, pasta.jpg):</strong>
+                    <ul>
+                        <li><b>Fonte:</b> google immagini</li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+    </section>
+    <section name="contributi e contatti">
+        <h3>Autore del Progetto</h3>
+        <p>
+            Questo progetto è stato interamente concepito e sviluppato da:
+            <ul>
+                <li><strong>Nome:</strong> Girolamo Tilotta</li>
+                <li><strong>Corso:</strong> Full stack developer con Python</li>
+                <li><strong>Sito Corso:</strong> <a href="https://www.talentform.it/calendario-corsi-gratuiti/">TalentForm</a></li>
+                <li><strong>Anno:</strong> 2025</li>
+                <li>
+                    <strong>Contatti:</strong><br>
+                    <ul>
+                        <li><b>Email:</b>tilottagirolamo96@gmail.com</li>
+                        <li><b>Numero di Telefono:</b> 3884992686</li>
+                        <li><b>GitHub:</b> <a href="https://github.com/tilottagirolamo96-cpu">tilottagirolamo96-cpu</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+    </section>
+</main>
+
+{% endblock %}

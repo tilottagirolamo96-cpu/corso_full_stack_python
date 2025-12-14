@@ -1,0 +1,34 @@
+#immagine-dieta{
+    width:450px;
+    height:450px;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.rientro-a-sinistra{
+    margin-left:20px;
+}
+
+/* Stile generico per altre immagini con float */
+.immagine{
+    float: left; /*sposta l'immagine a sinistra e permette al testo di fluire attorno*/
+    margin-right:20px; /* spazio tra l'immagine e il testo*/
+    margin-bottom: 20px; /*spazio sotto l'immagine per il testo che segue*/
+    /* Grandezza fissa */
+    width: 300px;
+    height: 300px;
+}
+
+/* Stile per il contenitore del testo accanto all'immagine flottante */
+.testo-accanto-immagine{
+    overflow: hidden; /* **Tecnica Clearfix implicita:** Contiene il float impedendo al testo di debordare/spostarsi oltre l'immagine */
+    padding-left: 10px; /* Separa il testo dal bordo dell'immagine flottante */
+}
+
+/* Correzione riposizionamento del resto del testo (Clearfix classico per il genitore) */
+article::after{
+    content: "";
+    display: table;
+    clear:both; /* Garantisce che gli elementi successivi ad 'article' inizino dopo gli elementi flottanti interni */
+}

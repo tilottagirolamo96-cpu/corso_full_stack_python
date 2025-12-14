@@ -1,0 +1,154 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Tipi di Diete{%endblock%}
+
+{% block head_links%}
+<link rel="stylesheet" href="{% static 'informazioni/css/style.css' %}">
+
+{%endblock%}
+{% block header_title %}
+    TIPI DI DIETE
+{% endblock%}
+
+{%block content%}
+<main>
+    <section name="Introduzione">
+        <h1 style="font-size:42px">L'Importanza dell'Alimentazione: Benessere e Salute</h1>
+
+        <p>
+            La parola "dieta" deriva dal greco dìaita, che significa "stile di vita". Contrariamente all'uso comune,
+            una dieta non è semplicemente un regime alimentare restrittivo per perdere peso, ma l'insieme delle 
+            abitudini alimentari che adottiamo quotidianamente. Una dieta equilibrata è fondamentale non solo per 
+            mantenere un peso corporeo sano, ma anche per prevenire malattie croniche, garantire l'energia necessaria 
+            e migliorare il benessere fisico e mentale generale.
+        </p>
+        <img src="{% static 'informazioni/img/dieta.jpeg' %}" id="immagine-dieta">
+
+        <p><strong>Obiettivo della pagina:</strong> in questa sezione esploreremo alcuni regimi alimentari
+        più popolari e studiati, analizzandone i principi fondamentali e i potenziali benefici</p>
+    </section>
+    <section name="tipi di diete indice e categorie">
+        <h2>Esplorando i diversi regimi alimentari</h2>
+        <p>
+            i regimi alimentari possono essere classificati in base agli obiettivi (dimagrimento, mantenimento,massa),
+            alla composizione dei macronutrienti (low carb,high protein) o a principi etici e culturali.<br>
+            Di seguito, approfondiremo tre categorie principali:
+            <ul>
+                <li>
+                    <strong>Diete Bilanciate e Sostenibili:</strong> Focalizzate sull'equilibrio nutrizionale a lungo termine
+                </li>
+                <li><strong>Diete e Restrizione di Macronutrienti:</strong> basate sulla modifica delle proporzioni di
+                    carboidrati, grassi e proteine
+                </li>
+                <li>
+                    <strong>Diete Vegane e Vegetariane:</strong> Basate su scelte etiche e alimentari
+                </li>
+            </ul>
+        </p>
+    </section>
+
+    <section name="paragrafi di dettaglio per ogni dieta">
+        <ol>
+            <li>
+                <p><strong>Dieta Mediterranea:</strong></p>
+                <p class="rientro-a-sinistra">
+                    <strong>Principi:</strong> È considerata un modello nutrizionale riconosciuto a livello mondiale. 
+                    Si basa sull'alto consumo di frutta, verdura, legumi, cereali integrali, frutta secca e olio d'oliva
+                    come principale fonte di grassi. Il consumo di pesce è moderato, mentre carne rossa e dolci sono limitati.
+                </p>
+                <p class="rientro-a-sinistra">
+                    <strong>Benefici:</strong>Numerosi studi collegano la Dieta Mediterranea alla riduzione del rischio 
+                    di malattie cardiovascolari, diabete di tipo 2 e alcuni tipi di cancro.
+                    È promossa per la sua sostenibilità e la sua ricchezza di antiossidanti e fibre.
+                </p>
+            </li>
+            <li>
+                <p><strong>Dieta Chetogenica (keto)</strong></p>
+                <p class="rientro-a-sinistra">
+                    <strong>Principi:</strong> È un regime alimentare a 
+                    <b>
+                        bassissimo contenuto di carboidrati,
+                        moderato di proteine e alto contenuto di grassi.
+                    </b>
+                    L'obiettivo è indurre il corpo in uno stato metabolico chiamato chetosi,
+                    dove il corpo brucia grassi per produrre chetoni, utilizzati come fonte di energia
+                    al posto del glucosio.
+                </p>
+                <p class="rientro-a-sinistra">
+                    <strong>Funzionamento:</strong> richiede una drastica riuduzione dei carboidrati
+                    (spesso sotto i 50 grammi al giorno)
+                </p>
+                <p class="rientro-a-sinistra">
+                    <strong>Avvertenze:</strong> Non è una dieta sostenibile a lungo termine per tutti e richiede
+                    un monitoraggio medico, specialmente nelle fasi iniziali, a causa dei possibili effetti
+                    collaterali (es. "keto-flu").
+                </p>
+            </li>
+            <li>
+                <p><strong>Dieta Vegetariana</strong></p>
+                <p class="rientro-a-sinistra">
+                    <strong>Principi:</strong> Esclude carne e pesce. Esistono diverse varianti:
+                    <ul>
+                        <li>
+                            <b>Lacto-Ovo-Vegetariana:</b> Consente uova e latticini.
+                        </li>
+                        <li>
+                            <b>Pesco-Vegetariana:</b> consente il pesce, ma esclude la carne.
+                        </li>
+                    </ul>
+                
+                </p>
+                <p class="rientro-a-sinistra">
+                    <strong>Nutrizione:</strong> Richiede attenzione all'assunzione di ferro, calcio e Vitamina B12 
+                    (che è presente quasi esclusivamente in prodotti animali), soprattutto nelle varianti più 
+                    restrittive.
+                </p>
+            </li>
+            <li>
+                <p><strong>Dieta Vegana</strong></p>
+                <p class="rientro-a-sinistra">
+                    <strong>Principi:</strong> Esclude <b>tutti i prodotti di origine animale,</b> inclusi carne,
+                    pesce, latticini, uova e miele. Si basa esclusivamente su frutta, verdura,
+                    cereali, legumi e derivati vegetali.
+                </p>
+                <p class="rientro-a-sinistra">
+                    <strong>Nutrizione:</strong>
+                    Una dieta vegana ben pianificata può essere salutare e adeguata, ma <strong>è essenziale 
+                    l'integrazione di Vitamina B12</strong> (che deve essere assunta tramite integratori o 
+                    alimenti fortificati).
+                </p>
+            </li>
+            <li>
+                <p><strong>Dieta DASH (Dietary Approaches to Stop Hypertension)</strong></p>
+                <p class="rientro-a-sinistra">
+                    <strong>Principi</strong> Ideata principalmente per <b>combattere l'ipertensione.</b>
+                    È ricca di frutta, verdura, cereali integrali e latticini magri, ma è a basso contenuto di sodio,
+                    zuccheri aggiunti e grassi saturi.
+                </p>
+                <p>
+                    <strong>Benefici:</strong>Riduce significativamente la pressione sanguigna ed è un ottimo
+                    modello di alimentazione bilanciata e salutare per il cuore.
+                </p>
+            </li>
+        </ol>
+    </section>
+    <section name="conclusioni">
+        <h2>La Tua Dieta è Unica</h2>
+        <p> Ogni regime alimentare ha i suoi meriti, ma l'efficacia di una dieta dipende sempre dalle
+            esigenze individuali, dallo stile di vita e dalla salute generale. <br>
+            <strong>Ricorda che:</strong>
+            <ul>
+                <li>
+                    <strong>L'equilibrio è la chiave:</strong> Concentrati sulla qualità degli alimenti
+                    e sulla sostenibilità a lungo termine
+                </li>
+                <li>
+                    <strong>Consultazione professionale:</strong> Qualsiasi cambiamento significativo al
+                    regime alimentare dovrebbe essere discusso con un medico, un dietologo o un nutrizionista
+                </li>
+            </ul>
+            <p>una corretta alimentazione è un investimento continuo per la tua salute futura.</p>
+        </p>
+    </section>
+</main>
+{% endblock %}

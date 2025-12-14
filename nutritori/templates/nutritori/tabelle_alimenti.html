@@ -1,0 +1,125 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{% block head_links%}
+    <link rel="stylesheet" href="{% static 'nutritori/css/style.css'%}">
+{%endblock%}
+
+{%block title%}Tabelle Alimenti{%endblock%}
+
+{% block header_title %}
+    TABELLE DEGLI ALIMENTI
+{% endblock%}
+
+{%block content%}
+    <h1>DATI DELLE TABELLE DEGLI ALIMENTI</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="tabella">
+        <table id="tabella_alimenti">
+            <caption>
+                <p id="titolo"><strong id="titolo-grassetto">COMPOSIZIONE CHIMICA E VALORE ENERGETICO DEGLI ALIMENTI</strong> per 100g di parte edibile</P>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Numero Codice</th>
+                    <th>Alimento</th>
+                    <th>Parte Edibile</th>
+                    <th>Acqua</th>
+                    <th>Proteine</th>
+                    <th>Lipidi</th>
+                    <th>Carboidrati</th>
+                    <th>Amido </th>
+                    <th>Zuccheri Solubili</th>
+                    <th>Fibra Alimentare</th>
+                    <th>Energia</th>
+                    <th>Energia</th>
+                    <th>Sodio</th>
+                    <th>Potassio</th>
+                    <th>Ferro</th>
+                    <th>Calcio</th>
+                    <th>Fosforo</th>
+                    <th>Tiamina (B1)</th>
+                    <th>Riboflavina (B2)</th>
+                    <th>Niacina (B3)</th>
+                    <th>Vitamina A ret eq</th>
+                    <th>Vitamina C</th>
+                    <th>Vitamina E</th>
+                    <th>Colesterolo</th>
+                </tr>
+                <tr id="misure">
+                    <th></th>
+                    <th></th>
+                    <th>%</th>
+                    <th>g</th>
+                    <th>g</th>
+                    <th>g</th>
+                    <th>g</th>
+                    <th>g</th>
+                    <th>g</th>
+                    <th>g</th>
+                    <th>Kcal</th>
+                    <th>Kj</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                    <th>μg</th>
+                    <th>mg</th>
+                    <th>mg</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tipo_alimento in info_alimenti.tipo_alimenti%}
+                    <tr>
+                        <td colspan="24">{{tipo_alimento.categoria_alimenti}}</td>
+                    </tr>
+                    {%for alimento in tipo_alimento.alimenti_set.all %}
+                        
+                        <tr>
+                            <td>{{alimento.Numero_Codice}}</td>
+                            <td>{{alimento.alimento}}</td>
+                            <td>{{alimento.parte_edibile}}</td>
+                            <td>{{alimento.acqua}}</td>
+                            <td>{{alimento.proteine}}</td>
+                            <td>{{alimento.lipidi}}</td>
+                            <td>{{alimento.carboidrati}}</td>
+                            <td>{{alimento.amido}}</td>
+                            <td>{{alimento.zuccheri_solubili}}</td>
+                            <td>{{alimento.fibra_alimentare}}</td>
+                            <td>{{alimento.energia_kcal}}</td>
+                            <td>{{alimento.energia_kj}}</td>
+                            <td>{{alimento.sodio}}</td>
+                            <td>{{alimento.potassio}}</td>
+                            <td>{{alimento.ferro}}</td>
+                            <td>{{alimento.calcio}}</td>
+                            <td>{{alimento.fosforo}}</td>
+                            <td>{{alimento.tiamina}}</td>
+                            <td>{{alimento.riboflavina}}</td>
+                            <td>{{alimento.niacina}}</td>
+                            <td>{{alimento.vit_a_ret_eg}}</td>
+                            <td>{{alimento.vitamina_c}}</td>
+                            <td>{{alimento.vitamina_e}}</td>
+                            <td>{{alimento.colesterolo}}</td>
+                        </tr>
+
+                        
+                    {%endfor%}
+                    
+                {%endfor%}
+
+                
+
+    
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

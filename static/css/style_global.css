@@ -1,0 +1,107 @@
+/* --- 1. BARRA DI NAVIGAZIONE (NavBar Fissa) --- */
+
+.barnav{
+    position :fixed; /* Rende la barra di navigazione fissa sullo schermo */
+    width:100%; /* Occupa tutta la larghezza */
+    height: 120px; /* Altezza fissa della barra */
+    top:0; /* Ancorata al margine superiore */
+    background-color: rgb(0, 0, 0); /* Sfondo nero */
+    z-index: 100; /* Assicura che la navbar sia sempre sopra gli altri elementi */
+
+    /* Utilizzo di Flexbox per il layout interno */
+    display: flex;
+    flex-direction: column; /* Organizza gli elementi uno sopra l'altro (titolo e link) */
+    
+    justify-content: space-between; /* Spazia gli elementi verticalmente (tra titolo e link) */
+    align-items :center; /* Centra gli elementi orizzontalmente */
+
+}
+
+/* Stile per i link all'interno della barra di navigazione */
+.barnav a {
+    color:rgb(255, 255, 255); /* Testo bianco */
+    text-decoration:none; /* Rimuove la sottolineatura tipica dei link */
+    padding:0px 10px 0px 10px; /* Spazio interno attorno al testo del link */
+    border-left: 2px solid; /* Aggiunge una linea di separazione tra i link (a sinistra) */
+    margin:0 2px; /* Piccolo margine orizzontale */
+    display:inline-block; /* Assicura che padding e margini siano applicati correttamente */
+}
+
+/* --- 2. STILE DEL CORPO DELLA PAGINA (Sfondo e Padding) --- */
+
+body{
+    background-color: rgb(224, 239, 255); /* Sfondo azzurro molto chiaro */
+    /* Aggiunge un padding superiore per lasciare spazio alla navbar fissa.*/
+    padding-top: 90px;
+    margin: 0; /* Rimuove i margini predefiniti del body */
+    
+}
+
+/* --- 3. STILE DEL TITOLO ALL'INTERNO DELLA NAVBAR --- */
+
+#titolo-pagina{
+    width:100%;
+    text-align:center;
+    color:rgb(255, 255, 255);
+    font-family:'Montserrat';
+    font-size:4em;
+    font-weight:bold;
+    letter-spacing:2px
+}
+
+/* --- 4. CONTENITORE PRINCIPALE DEL CONTENUTO ('Foglio') --- */
+#foglio-bianco{
+    background-color: rgb(255, 255, 255); /* Sfondo bianco per il contenuto */
+    border:solid;
+    /* Margine superiore di 100px per spaziare ulteriormente dal bordo della finestra, 
+       'auto' per centrare orizzontalmente */
+    margin: 100px auto 0;
+    width: 1150px; /* Larghezza fissa del contenitore */
+    /* Aggiunge un'ombra laterale e inferiore per dare un effetto "foglio sollevato" */
+    box-shadow: -5px 5px 10px  rgba(0, 0, 0, 0.438);
+    padding:30px; /* Spazio interno attorno al contenuto */
+}
+
+p, ul,ol{
+    font-size:20px;
+}
+
+h1{
+    text-align: center;
+    font-size:3em;
+}
+h2{
+    text-align:center; 
+    font-size: 2em;
+}
+
+table{
+    border-collapse:separate; /* Permette la spaziatura tra le celle */
+    border-spacing: 20px; /* Distanza tra le celle */
+
+}
+
+
+caption{
+    width :300px; 
+    border:none; 
+    padding:10px 20px 10px 20px; 
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: rgb(0, 49, 105); /* Blu scuro */
+    color:white; 
+
+}
+
+tr,td{
+    text-align: center; 
+    background-color: black;
+    color : white;
+    padding : 10px;
+}
+
+
+.tabella{
+    background-color: rgb(0, 0, 0);
+    
+}

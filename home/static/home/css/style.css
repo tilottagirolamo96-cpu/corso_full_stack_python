@@ -1,0 +1,66 @@
+/* --- 1. STILI DI BASE PER IMMAGINI E FLUSSO DI TESTO --- */
+
+/* Stile specifico per un'immagine usata in una sezione di definizione */
+
+
+.immagine-definizione{
+    float: left; /*sposta l'immagine a sinistra e permette al testo di fluire attorno*/
+    margin-right:20px; /* Spazio a destra (tra l'immagine e il testo) */
+    margin-bottom: 20px; /* Spazio sotto l'immagine per il testo che segue */
+    /* Grandezza fissa */
+    width: 400px;
+    height: 300px;
+}
+
+
+
+/*stile per il paragrafo della definizione*/
+#definizione{
+    font-size: 22px; 
+}
+
+
+
+/*stile per il titolo della definizione*/
+#titolo-definizione{
+    font-size: 2em; /*dimenzioni testo */
+    text-align: right; /* Allinea il testo a destra */
+    margin-top: 0; /* Rimuove il margine superiore per allineare il titolo al margine superiore dell'immagine */
+}
+
+
+
+/* Stile per il contenitore del testo accanto all'immagine flottante */
+.testo-accanto-immagine{
+    overflow: hidden; /* **Tecnica Clearfix implicita:** Contiene il float impedendo al testo di debordare/spostarsi oltre l'immagine */
+    padding-left: 10px; /* Separa il testo dal bordo dell'immagine flottante */
+}
+
+/* Correzione riposizionamento del resto del testo (Clearfix classico per il genitore) */
+article::after{
+    content: "";
+    display: table;
+    clear:both; /* Garantisce che gli elementi successivi ad 'article' inizino dopo gli elementi flottanti interni */
+}
+
+/* --- 4. STILI PER LAYOUT CON TABELLA (Esempio: Composizione Nutrizionale a lato) --- */
+
+/*stile per il contenitore del testo(sinistra)*/
+.testo-classificazione{
+    float:left; 
+    width: 60%;
+    padding-right: 20px; 
+    box-sizing:border-box;
+}
+/*stile per il contenitore della tabella(destra)*/
+.tabella-nutrienti{
+    float:right;
+    width:35%;
+    box-sizing: border-box;
+    
+}
+
+.tabella-nutrienti table{
+    width: 100%; /* La tabella riempie il 35% del contenitore */
+    margin:0 auto; /* Centra la tabella orizzontalmente all'interno del suo contenitore */
+}
