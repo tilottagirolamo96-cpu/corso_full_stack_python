@@ -80,7 +80,7 @@
             <tbody>
                 {% for tipo_alimento in info_alimenti.tipo_alimenti%}
                     <tr>
-                        <td colspan="24">{{tipo_alimento.categoria_alimenti}}</td>
+                        <td colspan="24" style="font-size:20px"><strong>{{tipo_alimento.categoria_alimenti}}</strong></td>
                     </tr>
                     {%for alimento in tipo_alimento.alimenti_set.all %}
                         
