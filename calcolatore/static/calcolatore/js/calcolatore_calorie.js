@@ -586,7 +586,7 @@ function gestisciSelezioneAlimento(nomeSelezionato){
     barraRicerca.value =nomeSelezionato
     codiceAlimentoSelezionato=''
 
-    // Trova l?alimento per salvare il codice
+    // Trova l'alimento per salvare il codice
     const alimentoTrovato=DATI_ALIMENTI.find(alimento => alimento.nome === nomeSelezionato)
 
     if (alimentoTrovato){
